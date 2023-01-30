@@ -51,11 +51,11 @@ scrape_configs:
       - targets: ['$NETHERMIND_IP:6969']
     metrics_path: "/metrics"
 
-  - job_name: node
+  - job_name: celo
     scrape_interval: 5s
     metrics_path: "/debug/metrics/prometheus"
     static_configs:
-    - targets: ['$CELO_IP:6969']
+    - targets: ['$CELO_IP:6060']
 
   - job_name: get_celo_latest
     metrics_path: /probe

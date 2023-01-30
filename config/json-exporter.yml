@@ -1,0 +1,14 @@
+---
+modules:
+  celo_latest:
+    metrics:
+    - name: latest_block
+      # type: counter
+      path: "{ .data.latestBlock }"
+      labels:
+        blockchain: celo # static label
+    body:
+      content: |
+        {"query": "query{latestBlock}", "variables": {}}
+    headers:
+      Content-Type: "application/json; charset=utf-8"

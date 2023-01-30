@@ -231,3 +231,27 @@ services:
     labels:
       org.label-schema.group: "monitoring"
     logging: *default-logging
+
+
+
+######################################################################################
+#####################              JSON EXPORTER               #######################
+######################################################################################
+
+
+
+  jsonexporter:
+    image: quay.io/prometheuscommunity/json-exporter
+    container_name: jsonexporter
+    volumes:
+      - ./config/json-exporter.yml:/opt/config.yml
+    command:
+      - '--config.file=/opt/config.yml'
+    restart: unless-stopped
+    expose:
+      - 7979
+    networks:
+      - monitor-net
+    labels:
+      org.label-schema.group: "monitoring"
+    logging: *default-logging

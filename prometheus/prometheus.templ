@@ -57,6 +57,22 @@ scrape_configs:
     static_configs:
     - targets: ['$CELO_IP:6969']
 
+  - job_name: get_celo_latest
+    metrics_path: /probe
+    params:
+      module: [celo_latest]
+    static_configs:
+      - targets:
+        - https://explorer.celo.org/mainnet/graphiql
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        ## Location of the json exporter's real <hostname>:<port>
+        replacement: jsonexporter:7979 # equivalent to "localhost:7979"
+
 alerting:
   alertmanagers:
   - scheme: http

@@ -80,7 +80,7 @@ scrape_configs:
     static_configs:
     - targets: ['$ARBITRUM_IP:6070']
 
-  - job_name: arbitrum_celo_latest
+  - job_name: arbitrum_nitro_latest
     scrape_interval: 60s
     metrics_path: /probe
     params:
@@ -88,6 +88,29 @@ scrape_configs:
     static_configs:
       - targets:
         - https://arbitrum.public-rpc.com
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        ## Location of the json exporter's real <hostname>:<port>
+        replacement: jsonexporter:7979 # equivalent to "localhost:7979"
+  
+  - job_name: optimism
+    scrape_interval: 5s
+    metrics_path: "/debug/metrics/prometheus"
+    static_configs:
+    - targets: ['$OPTIMISM_IP:6080']
+
+  - job_name: optimism_latest
+    scrape_interval: 60s
+    metrics_path: /probe
+    params:
+      module: [optimism_latest]
+    static_configs:
+      - targets:
+        - https://api-optimistic.etherscan.io/api?module=proxy&action=eth_blockNumber
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target

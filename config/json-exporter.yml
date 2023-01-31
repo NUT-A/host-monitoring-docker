@@ -24,3 +24,12 @@ modules:
         {"method":"eth_getBlockByNumber","params":["latest",false],"id":1,"jsonrpc":"2.0"}
     headers:
       Content-Type: "application/json; charset=utf-8"
+  optimism_latest:
+    metrics:
+    - name: latest_block
+      # type: counter
+      path: "{ .result }"
+      labels:
+        blockchain: optimism # static label
+    headers:
+      Content-Type: "application/json; charset=utf-8"

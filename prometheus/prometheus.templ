@@ -58,6 +58,7 @@ scrape_configs:
     - targets: ['$CELO_IP:6060']
 
   - job_name: get_celo_latest
+    scrape_interval: 60s
     metrics_path: /probe
     params:
       module: [celo_latest]

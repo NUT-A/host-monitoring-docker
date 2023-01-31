@@ -12,3 +12,15 @@ modules:
         {"query": "query{latestBlock}", "variables": {}}
     headers:
       Content-Type: "application/json; charset=utf-8"
+  arbitrum_latest:
+    metrics:
+    - name: latest_block
+      # type: counter
+      path: "{ .result.number }"
+      labels:
+        blockchain: arbitrum # static label
+    body:
+      content: |
+        {"method":"eth_getBlockByNumber","params":["latest",false],"id":1,"jsonrpc":"2.0"}
+    headers:
+      Content-Type: "application/json; charset=utf-8"

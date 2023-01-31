@@ -61,8 +61,7 @@ scrape_configs:
     scrape_interval: 60s
     metrics_path: /celo
     static_configs:
-      - targets:
-        - http://jsonexporter:8081
+      - targets: ['jsonexporter:8081']
 
   - job_name: arbitrum_nitro
     scrape_interval: 5s
@@ -74,8 +73,7 @@ scrape_configs:
     scrape_interval: 60s
     metrics_path: /arbitrum
     static_configs:
-      - targets:
-        - http://jsonexporter:8081
+      - targets: ['jsonexporter:8081']
   
   - job_name: optimism
     scrape_interval: 5s
@@ -87,8 +85,7 @@ scrape_configs:
     scrape_interval: 60s
     metrics_path: /optimism
     static_configs:
-      - targets:
-        - http://jsonexporter:8081
+      - targets: ['jsonexporter:8081']
 
 alerting:
   alertmanagers:

@@ -245,15 +245,11 @@ services:
 
 
   jsonexporter:
-    image: quay.io/prometheuscommunity/json-exporter
+    image: haritowa/latest-block-exporter:latest
     container_name: jsonexporter
-    volumes:
-      - ./config/json-exporter.yml:/opt/config.yml
-    command:
-      - '--config.file=/opt/config.yml'
     restart: unless-stopped
     expose:
-      - 7979
+      - 8081
     networks:
       - monitor-net
     labels:

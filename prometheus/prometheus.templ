@@ -51,39 +51,75 @@ scrape_configs:
       - targets: ['$NETHERMIND_IP:6969']
     metrics_path: "/metrics"
 
-  - job_name: celo
+  - job_name: gnosis_current
     scrape_interval: 5s
-    metrics_path: "/debug/metrics/prometheus"
-    static_configs:
-    - targets: ['$CELO_IP:6060']
-
-  - job_name: celo_latest
-    scrape_interval: 60s
-    metrics_path: /celo
+    metrics_path: /gnosis/current
     static_configs:
       - targets: ['jsonexporter:8081']
 
-  - job_name: arbitrum_nitro
-    scrape_interval: 5s
-    metrics_path: "/debug/metrics/prometheus"
+  - job_name: gnosis_latest
+    scrape_interval: 15s
+    metrics_path: /gnosis/latest
     static_configs:
-    - targets: ['$ARBITRUM_IP:6070']
+      - targets: ['jsonexporter:8081']
 
-  - job_name: arbitrum_nitro_latest
-    scrape_interval: 60s
-    metrics_path: /arbitrum
+- job_name: polygon_current
+    scrape_interval: 5s
+    metrics_path: /polygon/current
+    static_configs:
+      - targets: ['jsonexporter:8081']
+
+  - job_name: polygon_latest
+    scrape_interval: 15s
+    metrics_path: /polygon/latest
+    static_configs:
+      - targets: ['jsonexporter:8081']
+
+  - job_name: celo_current
+    scrape_interval: 5s
+    metrics_path: /celo/current
+    static_configs:
+      - targets: ['jsonexporter:8081']
+
+  - job_name: celo_latest
+    scrape_interval: 15s
+    metrics_path: /celo/latest
+    static_configs:
+      - targets: ['jsonexporter:8081']
+
+  - job_name: optimism_current
+    scrape_interval: 5s
+    metrics_path: /optimism/current
+    static_configs:
+      - targets: ['jsonexporter:8081']
+
+  - job_name: optimism_latest
+    scrape_interval: 15s
+    metrics_path: /optimism/latest
     static_configs:
       - targets: ['jsonexporter:8081']
   
-  - job_name: optimism
+  - job_name: arbitrum_nitro_current
     scrape_interval: 5s
-    metrics_path: "/metrics"
+    metrics_path: /arbitrum-nitro/current
     static_configs:
-    - targets: ['$OPTIMISM_IP:6080']
+      - targets: ['jsonexporter:8081']
 
-  - job_name: optimism_latest
-    scrape_interval: 60s
-    metrics_path: /optimism
+  - job_name: arbitrum_nitro_latest
+    scrape_interval: 15s
+    metrics_path: /arbitrum-nitro/latest
+    static_configs:
+      - targets: ['jsonexporter:8081']
+
+  - job_name: avalanche_current
+    scrape_interval: 5s
+    metrics_path: /avalanche/current
+    static_configs:
+      - targets: ['jsonexporter:8081']
+
+  - job_name: avalanche_latest
+    scrape_interval: 15s
+    metrics_path: /avalanche/latest
     static_configs:
       - targets: ['jsonexporter:8081']
 

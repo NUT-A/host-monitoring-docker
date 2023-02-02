@@ -63,7 +63,7 @@ scrape_configs:
     static_configs:
       - targets: ['blockexporter:8081']
 
-- job_name: polygon_current
+  - job_name: polygon_current
     scrape_interval: 5s
     metrics_path: /polygon/current
     static_configs:

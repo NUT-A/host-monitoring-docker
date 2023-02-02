@@ -239,15 +239,17 @@ services:
 
 
 ######################################################################################
-#####################              JSON EXPORTER               #######################
+#####################              Block Fetcher               #######################
 ######################################################################################
 
 
 
-  jsonexporter:
+  blockexporter:
     image: haritowa/latest-block-exporter:latest
-    container_name: jsonexporter
+    container_name: blockexporter
     restart: unless-stopped
+    env_file:
+      - .env
     expose:
       - 8081
     networks:

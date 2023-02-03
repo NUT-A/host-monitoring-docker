@@ -104,7 +104,7 @@ groups:
           __panelId__: '2'
         labels:
           notification: chain_diverge
-      - uid: lJzM570Vk
+      - uid: lJzM570Va
         title: Polygon Distance
         condition: threshold
         data:

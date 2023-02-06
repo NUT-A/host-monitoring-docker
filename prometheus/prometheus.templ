@@ -129,6 +129,12 @@ scrape_configs:
     static_configs:
       - targets: ['blockexporter:8081']
 
+  - job_name: wallets_eth_goerli
+    scrape_interval: 60s
+    metrics_path: /wallet/eth-goerli/0x254BbC7Ed0265f4de772015cA7F156C00bFA5b5c,0x3A5219A48eDf4f1866B90f8961E6519d1E737524,0xB86939f57165d187ecd28076f75eFf6e42C3e279,0x3FCd2Ff5134CDA719494E1AA92E9a90ec2E10270
+    static_configs:
+      - targets: ['blockexporter:8081']
+
 alerting:
   alertmanagers:
   - scheme: http

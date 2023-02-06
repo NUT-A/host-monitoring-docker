@@ -135,6 +135,18 @@ scrape_configs:
     static_configs:
       - targets: ['blockexporter:8081']
 
+  - job_name: allocations_eth_mainnet
+    scrape_interval: 60s
+    metrics_path: /allocation/eth-mainnet/0x641bcD1F80570dF8A8f2349321EC58cF6C875D06,0x809D1F262Dc5d871Eb156747BC957962993909F5,0x398bc98509CFc8Dd629607e51a29B4F844E5F90c,0x16E6722be866B664756e8Ba1f31c9Cb2B3EF4829
+    static_configs:
+      - targets: ['blockexporter:8081']
+
+  - job_name: allocations_eth_goerli
+    scrape_interval: 60s
+    metrics_path: /allocation/eth-goerli/0x641bcD1F80570dF8A8f2349321EC58cF6C875D06,0x809D1F262Dc5d871Eb156747BC957962993909F5,0x398bc98509CFc8Dd629607e51a29B4F844E5F90c,0x16E6722be866B664756e8Ba1f31c9Cb2B3EF4829
+    static_configs:
+      - targets: ['blockexporter:8081']
+
 alerting:
   alertmanagers:
   - scheme: http

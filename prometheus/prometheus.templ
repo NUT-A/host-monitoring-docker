@@ -137,13 +137,13 @@ scrape_configs:
 
   - job_name: allocations_eth_mainnet
     scrape_interval: 60s
-    metrics_path: '/allocation/eth-mainnet/$INDEXERS'
+    metrics_path: '/allocation/eth-mainnet/$ETH_MAINNET_INDEXERS'
     static_configs:
       - targets: ['blockexporter:8081']
 
   - job_name: allocations_eth_goerli
     scrape_interval: 60s
-    metrics_path: '/allocation/eth-goerli/$INDEXERS'
+    metrics_path: '/allocation/eth-goerli/$ETH_GOERLI_INDEXERS'
     static_configs:
       - targets: ['blockexporter:8081']
 

@@ -147,6 +147,24 @@ scrape_configs:
     static_configs:
       - targets: ['blockexporter:8081']
 
+  - job_name: latest_epoch_eth_mainnet
+    scrape_interval: 60s
+    metrics_path: '/allocation/eth-mainnet/epoch'
+    static_configs:
+      - targets: ['blockexporter:8081']
+
+  - job_name: latest_epoch_eth_goerli
+    scrape_interval: 60s
+    metrics_path: '/allocation/eth-goerli/epoch'
+    static_configs:
+      - targets: ['blockexporter:8081']
+
+  - job_name: config
+    scrape_interval: 60s
+    metrics_path: '/config/generate'
+    static_configs:
+      - targets: ['blockexporter:8081']
+
 alerting:
   alertmanagers:
   - scheme: http

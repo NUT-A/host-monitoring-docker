@@ -38,9 +38,9 @@
       },
       "id": 59,
       "panels": [],
-      "repeat": "job",
+      "repeat": "name",
       "repeatDirection": "h",
-      "title": "$job",
+      "title": "$name",
       "type": "row"
     },
     {
@@ -124,7 +124,7 @@
             "uid": "P1809F7CD0C75ACF3"
           },
           "editorMode": "code",
-          "expr": "count(current_block{job=\"$job\"})",
+          "expr": "count(current_block{name=~\"$name\"})",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -215,7 +215,7 @@
             "uid": "P1809F7CD0C75ACF3"
           },
           "editorMode": "code",
-          "expr": "increase((current_block{job=\"$job\"} > 0)[1h:])",
+          "expr": "increase((current_block{name=~\"$name\"} > 0)[1h:])",
           "hide": false,
           "legendFormat": "__auto",
           "range": true,
@@ -323,7 +323,7 @@
             "uid": "P1809F7CD0C75ACF3"
           },
           "editorMode": "code",
-          "expr": "last_over_time(latest_block[1h]) - on (instance, blockchain) last_over_time(current_block{job=\"$job\"}[1h])",
+          "expr": "last_over_time(latest_block[1h]) - on (instance, blockchain) last_over_time(current_block{name=~\"$name\"}[1h])",
           "hide": false,
           "legendFormat": "__auto",
           "range": true,
@@ -432,7 +432,7 @@
             "uid": "P1809F7CD0C75ACF3"
           },
           "editorMode": "code",
-          "expr": "(last_over_time(latest_block[1h]) - on (instance, blockchain) last_over_time(current_block{job=\"$job\"}[1h])) / on (instance, blockchain) increase((current_block{job=\"$job\"} > 0)[1h:])",
+          "expr": "(last_over_time(latest_block[1h]) - on (instance, blockchain) last_over_time(current_block{name=~\"$name\"}[1h])) / on (instance, blockchain) increase((current_block{name=~\"$name\"} > 0)[1h:])",
           "hide": false,
           "legendFormat": "__auto",
           "range": true,
@@ -572,7 +572,7 @@
             "uid": "P1809F7CD0C75ACF3"
           },
           "editorMode": "code",
-          "expr": "current_block{job=\"$job\"} != 0",
+          "expr": "current_block{name=~\"$name\"} != 0",
           "hide": false,
           "legendFormat": "__auto",
           "range": true,
@@ -584,14 +584,14 @@
             "uid": "P1809F7CD0C75ACF3"
           },
           "editorMode": "code",
-          "expr": "latest_block and on (instance, blockchain) current_block{job=\"$job\"}",
+          "expr": "latest_block and on (instance, blockchain) current_block{name=~\"$name\"}",
           "hide": false,
           "legendFormat": "__auto",
           "range": true,
           "refId": "chain_head"
         }
       ],
-      "title": "$blockchain",
+      "title": "$name",
       "type": "timeseries"
     },
     {
@@ -600,7 +600,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 16
+        "y": 96
       },
       "id": 13,
       "panels": [
@@ -650,47 +650,21 @@
       {
         "current": {
           "selected": true,
-          "text": "arbitrum_nitro_current",
-          "value": "arbitrum_nitro_current"
+          "text": "All",
+          "value": "$__all"
         },
         "datasource": {
           "type": "prometheus",
           "uid": "P1809F7CD0C75ACF3"
         },
-        "definition": "label_values(current_block, job)",
+        "definition": "label_values(current_block, name)",
         "hide": 0,
         "includeAll": true,
         "multi": false,
-        "name": "job",
+        "name": "name",
         "options": [],
         "query": {
-          "query": "label_values(current_block, job)",
-          "refId": "StandardVariableQuery"
-        },
-        "refresh": 1,
-        "regex": "",
-        "skipUrlSync": false,
-        "sort": 0,
-        "type": "query"
-      },
-      {
-        "current": {
-          "selected": false,
-          "text": "arbitrum_nitro",
-          "value": "arbitrum_nitro"
-        },
-        "datasource": {
-          "type": "prometheus",
-          "uid": "P1809F7CD0C75ACF3"
-        },
-        "definition": "label_values(current_block{job=\"$job\"}, blockchain)",
-        "hide": 2,
-        "includeAll": false,
-        "multi": false,
-        "name": "blockchain",
-        "options": [],
-        "query": {
-          "query": "label_values(current_block{job=\"$job\"}, blockchain)",
+          "query": "label_values(current_block, name)",
           "refId": "StandardVariableQuery"
         },
         "refresh": 1,
@@ -702,13 +676,13 @@
     ]
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-24h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "RPC",
   "uid": "9XH7Fn0Vk",
-  "version": 17,
+  "version": 23,
   "weekStart": ""
 }

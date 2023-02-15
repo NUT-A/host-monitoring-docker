@@ -24,7 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 8,
+  "id": 6,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -35,6 +35,51 @@
         "w": 24,
         "x": 0,
         "y": 0
+      },
+      "id": 13,
+      "panels": [],
+      "title": "Alerts",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "grafana"
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 10,
+      "options": {
+        "alertInstanceLabelFilter": "",
+        "alertName": "",
+        "dashboardAlerts": true,
+        "groupBy": [],
+        "groupMode": "default",
+        "maxItems": 20,
+        "sortOrder": 1,
+        "stateFilter": {
+          "error": true,
+          "firing": true,
+          "noData": true,
+          "normal": true,
+          "pending": true
+        },
+        "viewMode": "list"
+      },
+      "title": "Alerts",
+      "type": "alertlist"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 12
       },
       "id": 59,
       "panels": [],
@@ -98,7 +143,7 @@
         "h": 5,
         "w": 6,
         "x": 0,
-        "y": 1
+        "y": 13
       },
       "id": 61,
       "options": {
@@ -190,7 +235,7 @@
         "h": 5,
         "w": 6,
         "x": 6,
-        "y": 1
+        "y": 13
       },
       "id": 62,
       "options": {
@@ -298,7 +343,7 @@
         "h": 5,
         "w": 6,
         "x": 12,
-        "y": 1
+        "y": 13
       },
       "id": 63,
       "options": {
@@ -407,7 +452,7 @@
         "h": 5,
         "w": 6,
         "x": 18,
-        "y": 1
+        "y": 13
       },
       "id": 64,
       "options": {
@@ -547,7 +592,7 @@
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 6
+        "y": 18
       },
       "id": 60,
       "options": {
@@ -593,52 +638,6 @@
       ],
       "title": "$name",
       "type": "timeseries"
-    },
-    {
-      "collapsed": true,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 96
-      },
-      "id": 13,
-      "panels": [
-        {
-          "datasource": {
-            "type": "datasource",
-            "uid": "grafana"
-          },
-          "gridPos": {
-            "h": 11,
-            "w": 24,
-            "x": 0,
-            "y": 2
-          },
-          "id": 10,
-          "options": {
-            "alertInstanceLabelFilter": "",
-            "alertName": "",
-            "dashboardAlerts": true,
-            "groupBy": [],
-            "groupMode": "default",
-            "maxItems": 20,
-            "sortOrder": 1,
-            "stateFilter": {
-              "error": true,
-              "firing": true,
-              "noData": true,
-              "normal": true,
-              "pending": true
-            },
-            "viewMode": "list"
-          },
-          "title": "Alerts",
-          "type": "alertlist"
-        }
-      ],
-      "title": "Alerts",
-      "type": "row"
     }
   ],
   "refresh": false,
@@ -709,6 +708,6 @@
   "timezone": "",
   "title": "RPC",
   "uid": "9XH7Fn0Vk",
-  "version": 26,
+  "version": 10,
   "weekStart": ""
 }
